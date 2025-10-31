@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  auto-backup:
+    build: .
+    container_name: auto-backup
+    env_file:
+      - .env
+    volumes:
+      - ./app/render:/app/app/render
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
